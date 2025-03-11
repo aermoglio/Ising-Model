@@ -8,7 +8,9 @@ class Atom{       // defining the atom class
         Atom();     // default constructor
 
         // member function to retrieve the state of the atom. atom gets randomly assigned a value in cpp
-        int getstate(); 
+        int getState(); 
+
+        // make a flip function???
 };
 
 #endif
