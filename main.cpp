@@ -10,13 +10,14 @@ using namespace std;
 int main() {
     srand(time(0));      // uses current time as the seed so all values produced for the states are different.
 
-    int N = 100;
+    int N = 10;
+    int iterations = 10;
     AtomChain chain(N);
     
     std::cout << "Initial Atom Chain: " << std::endl;
     chain.printChain();
     
-    MonteCarlo (chain,N,1000);
+    MonteCarlo (chain,N,iterations);
 
     std::cout << "Final Atom Chain: " << std::endl;
     chain.printChain();
