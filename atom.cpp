@@ -12,5 +12,5 @@ int Atom::getState() {
 }
 
 void Atom::flip(){
-    state = state*(-1);  
+    state = -state;  
 }

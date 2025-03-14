@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -std=c++11 -O2 -Wall
-SRC = main.cpp atom.cpp atomchain.cpp
+SRC = main.cpp atom.cpp atomchain.cpp montecarlo.cpp
 
 EXEC = program
 

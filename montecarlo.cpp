@@ -3,14 +3,14 @@
 
 using namespace std;
 
-void MonteCarlo(int N, int iterations){
-    // choose a random number between 0 and N (the number of atoms in chain)
-    // choose the atom corresponding to that position and flip it
+void MonteCarlo(AtomChain &chain,int N, int iterations){
     // calculate the energy change of that combination
+    int randomIndex=rand()% N;
+    Atom& selectedAtom =chain.getAtom(randomIndex);
+    selectedAtom.flip();
 
-    int randomIndex=rand()%100;
-    
-
+    cout << "Flipped atom at index " << randomIndex 
+    << " -> New state: " << selectedAtom.getState() << endl;
 
 }
 

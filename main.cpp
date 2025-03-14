@@ -3,6 +3,7 @@
 #include <time.h> 
 #include <cstdlib> 
 #include "atomchain.h"
+#include "montecarlo.h"
 
 using namespace std;
 
@@ -15,5 +16,10 @@ int main() {
     std::cout << "Initial Atom Chain: " << std::endl;
     chain.printChain();
     
+    MonteCarlo (chain,N,1000);
+
+    std::cout << "Final Atom Chain: " << std::endl;
+    chain.printChain();
+
     return 0;
 }
