@@ -45,15 +45,16 @@ void MonteCarlo(AtomChain &chain,int N, double T, int iterations){
         double beta = 1/(k*T);
         double P = exp(-beta*energyChange);
 
-        
+        //condition if P>1
+        if (P>1){
+            P=1;
+        }
 
+        double randomValue = (double)rand() / RAND_MAX;    // generate random value between 0 and 1
 
-        // picking t random atom and flipping the state
-       //  
-        //selectedAtom.flip();
-
-        // calculating the change in energy ocurring from this flip (considering neighbouring atoms)
-
+        if (randomValue<P){
+            selectedAtom.flip();
+        }
 
     }
 

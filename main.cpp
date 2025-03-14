@@ -10,9 +10,9 @@ using namespace std;
 int main() {
     srand(time(0));      // uses current time as the seed so all values produced for the states are different.
 
-    int N = 10;
-    int iterations = 10;
-    double T=273;
+    int N = 100;
+    int iterations = 50000;
+    double T=100;
     AtomChain chain(N);
     
     std::cout << "Initial Atom Chain: " << std::endl;
