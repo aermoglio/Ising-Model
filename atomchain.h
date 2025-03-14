@@ -14,6 +14,7 @@ class AtomChain{
         AtomChain(int N);              //constructor to create a chain of atoms
         int N;
         vector<Atom> atoms;       // creating vector of 100 elements. this is our atom chain
+        void printChain();      // member function used for debugging (to actually print and see the chain)
 
 };
 
