@@ -10,3 +10,7 @@ int Atom::getState() {
     return state;
 
 }
+
+void Atom::flip(){
+    state = state*(-1);
+}

@@ -8,7 +8,7 @@ AtomChain::AtomChain(int N){
 }
 
 void AtomChain::printChain() {
-    for (Atom &atom : this->atoms) {
+    for (Atom &atom : this->atoms) {        // for each element in the atoms vector, obtain the state and return it
         cout << atom.getState() << " ";
     }
     cout << endl;

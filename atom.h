@@ -10,7 +10,8 @@ class Atom{       // defining the atom class
         // member function to retrieve the state of the atom. atom gets randomly assigned a value in cpp
         int getState(); 
 
-        // make a flip function???
+        // flip function that changes an atoms state (flip)
+        void flip();
 };
 
 #endif
