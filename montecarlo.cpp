@@ -7,6 +7,7 @@ int computeEnergyChange(AtomChain &chain,int N, int index){
     int energyChange =0;
 
     int selectedState =chain.getAtom(index).getState();
+    int flippedState= - selectedState;
     int leftNeighbour, rightNeighbour;
     // finding neighbours
     // consider situation at boundaries:
@@ -24,22 +25,28 @@ int computeEnergyChange(AtomChain &chain,int N, int index){
         rightNeighbour = chain.getAtom (index+1).getState();
     }
 
-    energyChange = -(selectedState*leftNeighbour)-(selectedState*rightNeighbour);
+    // calculating energy change
+    energyChange = -(flippedState*leftNeighbour)-(flippedState*rightNeighbour);
     return energyChange;
 
 }
 
-void MonteCarlo(AtomChain &chain,int N, int iterations){
+void MonteCarlo(AtomChain &chain,int N, double T, int iterations){
     // calculate the energy change of that combination
     for (int i=0;i<iterations;i++){
         
         int randomIndex=rand()% N;   // picking a random atom from the chain
         Atom& selectedAtom =chain.getAtom(randomIndex);
 
-        computeEnergyChange(chain, N,randomIndex);
+        double energyChange = computeEnergyChange(chain, N,randomIndex);
         
-        //applying conditions for energy:
+        //calculating P:
+        double k = 1.38*pow(10, -23);
+        double beta = 1/(k*T);
+        double P = exp(-beta*energyChange);
+
         
+
 
         // picking t random atom and flipping the state
        //  

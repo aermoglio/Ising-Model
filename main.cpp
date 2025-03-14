@@ -12,12 +12,13 @@ int main() {
 
     int N = 10;
     int iterations = 10;
+    double T=273;
     AtomChain chain(N);
     
     std::cout << "Initial Atom Chain: " << std::endl;
     chain.printChain();
     
-    MonteCarlo (chain,N,iterations);
+    MonteCarlo (chain,N,T,iterations);
 
     std::cout << "Final Atom Chain: " << std::endl;
     chain.printChain();
