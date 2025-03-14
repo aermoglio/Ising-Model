@@ -5,6 +5,7 @@
 #include <time.h> 
 #include <cstdlib> 
 
-void MonteCarlo(AtomChain &chain, int N, int iterations);
+int computeEnergyChange(AtomChain &chain, int index);   // function to compute change in energy
+void MonteCarlo(AtomChain &chain, int N, int iterations);  // function to perform monte carlo
 
 #endif
