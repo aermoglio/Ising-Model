@@ -5,7 +5,7 @@
 #include <time.h> 
 #include <cstdlib> 
 
-void MonteCarlo(int iterations);
+void MonteCarlo(AtomChain &chain, int N, int iterations);
 int iterations;
 
 #endif

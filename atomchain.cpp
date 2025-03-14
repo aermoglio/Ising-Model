@@ -13,3 +13,8 @@ void AtomChain::printChain() {
     }
     cout << endl;
 }
+
+Atom& AtomChain::getAtom(int index) {
+    return atoms[index];
+
+}
