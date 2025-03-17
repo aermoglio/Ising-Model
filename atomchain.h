@@ -18,8 +18,8 @@ class AtomChain{
         Atom& getAtom(int index);          // this refers to an object of the Atom class within the chain. used to select a specific atom from the chain
 
         // functions to calculate total energy and magnetisation
-        double totalEnergy();
-        double totalMagnetisation();
+        void totalEnergy();
+        void totalMagnetisation();
 
 };
 

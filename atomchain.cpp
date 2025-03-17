@@ -20,18 +20,28 @@ Atom& AtomChain::getAtom(int index) {
 }
 
 // functions to calculate total energy and magnetisation
-//double AtomChain::totalEnergy(){
+void AtomChain::totalEnergy(){
+    int energy =0;
+    for (int i =0;i<N;i++){
+        if (i==0){
+            energy+=-atoms[i].getState()*atoms[i+1].getState();
+        }
+        else if (i==N-1){
+            energy+=-atoms[i].getState()*atoms[i-1].getState();
+        }
+        else{
+            energy+=-atoms[i].getState()*(atoms[i-1].getState()+atoms[i+1].getState());
+        }
+    } double totalEnergy=energy/2;
+    cout << "Total Energy: " << totalEnergy << endl;
+}
 
-//}
-
-double AtomChain::totalMagnetisation(){
+void AtomChain::totalMagnetisation(){
     int magnetisation=0;
     for (int i=0; i<N; i++){
         magnetisation+=atoms[i].getState();
-    }
-    return magnetisation;
-
-
+    }    
+    cout << "Total Magnetisation: " << magnetisation << endl;
 }
 
 

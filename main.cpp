@@ -13,16 +13,19 @@ int main() {
 
     int N = 100;
     int iterations = 50000;
-    double T=600;
+    double T=0.0128;        //temperature might be in electronvolts? we set k at 1;
     AtomChain chain(N);
     
-    std::cout << "Initial Atom Chain: " << std::endl;
+    cout << "Initial Atom Chain: " << endl;
     chain.printChain();
     
     MonteCarlo (chain,N,T,iterations);
 
-    std::cout << "Final Atom Chain: " << std::endl;
+    cout << "Final Atom Chain: " << endl;
     chain.printChain();
+    
+    chain.totalEnergy();
+    chain.totalMagnetisation();
 
     return 0;
 }
