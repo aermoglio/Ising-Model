@@ -8,7 +8,6 @@ Atom::Atom(){
 
 int Atom::getState() {
     return state;
-
 }
 
 void Atom::flip(){

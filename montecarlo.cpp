@@ -12,10 +12,10 @@ int computeEnergyChange(AtomChain &chain,int N, int index){
     // finding neighbours
     // consider situation at boundaries:
     if (index==0){
-        rightNeighbour = chain.getAtom (index+1).getState();
+        rightNeighbour = chain.getAtom(index+1).getState();
         leftNeighbour = 0;
     }
-    if (index==N-1){
+    else if (index==N-1){
         leftNeighbour = chain.getAtom(index-1).getState();
         rightNeighbour = 0;
     }
@@ -26,7 +26,11 @@ int computeEnergyChange(AtomChain &chain,int N, int index){
     }
 
     // calculating energy change
-    energyChange = -(flippedState*leftNeighbour)-(flippedState*rightNeighbour);
+    // before and afterflipping:
+    int energyBefore=-selectedState*(leftNeighbour+rightNeighbour);
+    int energyAfter=-flippedState*(leftNeighbour+rightNeighbour);
+    // change in energy:
+    energyChange = energyAfter-energyBefore;
     return energyChange;
 
 }
@@ -41,7 +45,7 @@ void MonteCarlo(AtomChain &chain,int N, double T, int iterations){
         double energyChange = computeEnergyChange(chain, N,randomIndex);
         
         //calculating P:
-        double k = 1.38*pow(10, -23);
+        double k = 1;    // setting boltzmann to 1
         double beta = 1/(k*T);
         double P = exp(-beta*energyChange);
 
@@ -50,7 +54,7 @@ void MonteCarlo(AtomChain &chain,int N, double T, int iterations){
             P=1;
         }
 
-        double randomValue = (double)rand() / RAND_MAX;    // generate random value between 0 and 1
+        double randomValue = ((rand()%1000)/1e4);    // generate random value between 0 and 1
 
         if (randomValue<P){
             selectedAtom.flip();

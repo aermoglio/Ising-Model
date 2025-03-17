@@ -3,6 +3,7 @@
 #include <time.h> 
 #include <cstdlib> 
 #include "atomchain.h"
+#include "atom.h"
 #include "montecarlo.h"
 
 using namespace std;
@@ -12,7 +13,7 @@ int main() {
 
     int N = 100;
     int iterations = 50000;
-    double T=100;
+    double T=600;
     AtomChain chain(N);
     
     std::cout << "Initial Atom Chain: " << std::endl;

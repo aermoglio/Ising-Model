@@ -2,6 +2,7 @@
 #define MONTECARLO_H
 
 #include "atomchain.h"
+#include "atom.h"
 #include <time.h> 
 #include <cstdlib> 
 

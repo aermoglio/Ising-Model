@@ -17,6 +17,10 @@ class AtomChain{
         void printChain();      // member function used for debugging (to actually print and see the chain)
         Atom& getAtom(int index);          // this refers to an object of the Atom class within the chain. used to select a specific atom from the chain
 
+        // functions to calculate total energy and magnetisation
+        double totalEnergy();
+        double totalMagnetisation();
+
 };
 
 #endif
