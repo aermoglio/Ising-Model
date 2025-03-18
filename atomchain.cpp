@@ -14,15 +14,16 @@ void AtomChain::printChain() {
     cout << endl;
 }
 
-Atom& AtomChain::getAtom(int index) {
+Atom& AtomChain::getAtom(int index) {            // function to pick an element from our atoms chain
     return atoms[index];
 
 }
 
 // functions to calculate total energy and magnetisation
-void AtomChain::totalEnergy(){
+double AtomChain::totalEnergy(){
     int energy =0;
     for (int i =0;i<N;i++){
+        // boundary conditions for atoms at the beginning and at the end of the chain
         if (i==0){
             energy+=-atoms[i].getState()*atoms[i+1].getState();
         }
@@ -32,16 +33,16 @@ void AtomChain::totalEnergy(){
         else{
             energy+=-atoms[i].getState()*(atoms[i-1].getState()+atoms[i+1].getState());
         }
-    } double totalEnergy=energy/2;
-    cout << "Total Energy: " << totalEnergy << endl;
+    } double totalEnergy=energy/2;    // energy divided by two because of double counting
+    return totalEnergy;
 }
 
-void AtomChain::totalMagnetisation(){
+double AtomChain::totalMagnetisation(){     // adding the states of the atoms to obtain magnetisation
     int magnetisation=0;
     for (int i=0; i<N; i++){
         magnetisation+=atoms[i].getState();
     }    
-    cout << "Total Magnetisation: " << magnetisation << endl;
+    return magnetisation;
 }
 
 
