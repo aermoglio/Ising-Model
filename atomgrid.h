@@ -15,8 +15,8 @@ class AtomGrid{
         AtomGrid(int N);
         int N;
         vector<vector<Atom>> atoms;
-        void printGrid();
         Atom& getAtom(int row, int col); 
+        void printGrid();
 
         double totalEnergy();
         double totalMagnetisation();

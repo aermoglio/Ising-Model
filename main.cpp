@@ -3,13 +3,20 @@
 #include <time.h> 
 #include <fstream>
 #include <cstdlib> 
-#include "atomchain.h"
+#include "atomgrid.h"
 #include "atom.h"
 #include "montecarlo.h"
 
 using namespace std;
 
 int main() {
+    srand(time(0));  
+
+    AtomGrid grid(10);
+    grid.printGrid();
+
+
+
    // int n_configurations = 10000;        // number of configurations to create
     
    // ofstream outfile("output2D.txt");   //creating file for output
