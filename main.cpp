@@ -12,21 +12,21 @@ using namespace std;
 int main() {
     srand(time(0));  
 
-    AtomGrid grid(10);
+    int N= 10;
+    int iterations=50000;
+    double T=0.9;
+
+    AtomGrid grid(N);
     grid.printGrid();
 
+    cout<<"New!"<<endl;
 
+    MonteCarlo (grid,N,T,iterations);  
+    grid.printGrid();
 
    // int n_configurations = 10000;        // number of configurations to create
     
    // ofstream outfile("output2D.txt");   //creating file for output
-    
-    
-   // int N = 100;          // number of particles
-   // int iterations = 50000;    //number of iterations for monte carlo
-   // double T=0.034;        // we set k at 1, so our units for temperature have now changed to eV;
-
-  //  srand(time(0));      // uses current time as the seed so all values produced for the states are different.
     
     // parameters onto output file
   //  outfile<<"Number of Configurations: "<<n_configurations<<endl; 

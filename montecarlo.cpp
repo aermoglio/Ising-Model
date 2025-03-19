@@ -3,50 +3,45 @@
 
 using namespace std;
 
-int computeEnergyChange(AtomChain &chain,int N, int index){   // function to calculate change in energy if a randomly chosen atom were to be flipped
-    int energyChange =0;
+int computeEnergyChange(AtomGrid &grid,int N, int row, int col){   // function to calculate change in energy if a randomly chosen atom were to be flipped
+    double energyChange =0;
 
-    int selectedState =chain.getAtom(index).getState();       // obtaining the state of the selected atom (chosen using a RNG for the index)
+    int selectedState =grid.getAtom(row, col).getState();       // obtaining the state of the selected atom (chosen using a RNG for the index)
+    
     int flippedState= - selectedState;                     // considering what the flipped state of the chosen atom would be
-    int leftNeighbour, rightNeighbour;               // defining variables for our selected atom's neighbours
+    int leftNeighbour=0, rightNeighbour=0, topNeighbour=0, bottomNeighbour=0;          // defining variables for our selected atom's neighbours
     
     // FINDING NEIGHBOUR STATES
     // consider situation at boundaries:
-    if (index==0){                                           // first atom in chain has no neighbours to the left
-        rightNeighbour = chain.getAtom(index+1).getState();
-        leftNeighbour = 0;
-    }
-    else if (index==N-1){                                   // final atom in chain has no neighbours on right
-        leftNeighbour = chain.getAtom(index-1).getState();
-        rightNeighbour = 0;
-    }
-    // in general:
-    else {                                                   // getting the state of the neighbour atoms based on index
-        leftNeighbour = chain.getAtom(index-1).getState();
-        rightNeighbour = chain.getAtom (index+1).getState();
-    }
 
+    if (col > 0) leftNeighbour = grid.getAtom(row, col-1).getState();
+    if (col < N - 1) rightNeighbour = grid.getAtom(row, col+1).getState();
+    if (row > 0) topNeighbour = grid.getAtom(row - 1, col).getState();
+    if (row < N - 1) bottomNeighbour = grid.getAtom(row + 1, col).getState();
+  
     // CALCULATING ENERGY CHANGE IF ATOM WERE TO FLIP
 
     // before and after flipping:
-    int energyBefore=-selectedState*(leftNeighbour+rightNeighbour);
-    int energyAfter=-flippedState*(leftNeighbour+rightNeighbour);
-    
+    double energyBefore= -selectedState*(leftNeighbour+rightNeighbour+topNeighbour+bottomNeighbour);
+    double energyAfter= -flippedState*(leftNeighbour+rightNeighbour+topNeighbour+bottomNeighbour);
+    energyChange=energyBefore-energyAfter;
     // change in energy:
-    energyChange = energyAfter-energyBefore;
+
     return energyChange;
 
 }
 
 // MONTE CARLO
-void MonteCarlo(AtomChain &chain,int N, double T, int iterations){             
-    // calculate the energy change of that combination
+void MonteCarlo(AtomGrid &grid,int N, double T, int iterations){             
+
     for (int i=0;i<iterations;i++){
         
-        int randomIndex=rand()% N;   // picking a random atom from the chain
-        Atom& selectedAtom =chain.getAtom(randomIndex);          // getting the state of our randomly selected atom
+        int randomRow=rand()% N;   // picking a random row from the grid
+        int randomCol=rand()% N;   // picking a random atom from the chain
+        
+        Atom& selectedAtom =grid.getAtom(randomRow,randomCol);          // getting the state of our randomly selected atom
 
-        double energyChange = computeEnergyChange(chain, N,randomIndex);           // calculating energy change if our selected atom were to be flipped
+        double energyChange = computeEnergyChange(grid, N,randomRow,randomCol);           // calculating energy change if our selected atom were to be flipped
         
         //calculating probability:
         double k = 1;    // setting boltzmann to 1, for simplicity purposes
