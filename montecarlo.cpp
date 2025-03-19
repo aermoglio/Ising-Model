@@ -14,10 +14,10 @@ int computeEnergyChange(AtomGrid &grid,int N, int row, int col){   // function t
     // FINDING NEIGHBOUR STATES
     // consider situation at boundaries:
 
-    if (col > 0) leftNeighbour = grid.getAtom(row, col-1).getState();
-    if (col < N - 1) rightNeighbour = grid.getAtom(row, col+1).getState();
-    if (row > 0) topNeighbour = grid.getAtom(row - 1, col).getState();
-    if (row < N - 1) bottomNeighbour = grid.getAtom(row + 1, col).getState();
+    if (col> 0) leftNeighbour = grid.getAtom(row, col-1).getState();
+    if (col< N - 1) rightNeighbour = grid.getAtom(row, col+1).getState();
+    if (row> 0) topNeighbour = grid.getAtom(row - 1, col).getState();
+    if (row< N - 1) bottomNeighbour = grid.getAtom(row + 1, col).getState();
   
     // CALCULATING ENERGY CHANGE IF ATOM WERE TO FLIP
 
