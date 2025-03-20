@@ -10,10 +10,10 @@
 using namespace std;
 
 int main() {
-    int n_configurations = 1000;        // number of configurations to create
+    int n_configurations = 10000;        // number of configurations to create
 
-    int N = 3;          // number of particles
-    int iterations = 25000;    //number of iterations for monte carlo
+    int N = 100;          // number of particles
+    int iterations = 10000;    //number of iterations for monte carlo
     // for this, we want to test a range of temperatures
     double T_min=0.01, T_max=5;
     double T_step=0.1;        //
