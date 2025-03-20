@@ -24,7 +24,7 @@ int computeEnergyChange(AtomGrid &grid,int N, int row, int col){   // function t
     // before and after flipping:
     double energyBefore= -selectedState*(leftNeighbour+rightNeighbour+topNeighbour+bottomNeighbour);
     double energyAfter= -flippedState*(leftNeighbour+rightNeighbour+topNeighbour+bottomNeighbour);
-    energyChange=energyBefore-energyAfter;
+    energyChange=energyAfter-energyBefore;
     // change in energy:
 
     return energyChange;

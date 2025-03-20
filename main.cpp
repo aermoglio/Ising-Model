@@ -15,7 +15,7 @@ int main() {
     int n_configurations = 10000;  
     int N= 100;
     int iterations=10000;
-    double T=0.9;
+    double T=3.5;
 
     ofstream outfile("output2D.txt");
     outfile<<"Number of Configurations: "<<n_configurations<<endl; 
