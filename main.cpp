@@ -16,7 +16,7 @@ int main() {
 
     
     int N = 3;          // number of particles
-    int iterations = 50000;    //number of iterations for monte carlo
+    int iterations = 10;    //number of iterations for monte carlo
     double T=3.5;        // we set k at 1, so our units for temperature have now changed to being dimensionless;
 
     srand(time(0));      // uses current time as the seed so all values produced for the states are different.
