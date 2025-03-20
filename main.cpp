@@ -13,7 +13,7 @@ int main() {
     srand(time(0));  
 
     int n_configurations = 10000;  
-    int N= 3;
+    int N= 100;
     int iterations=10000;
     double T_min = 0.1, T_max = 5;
     double T_step = 0.1;
@@ -21,8 +21,8 @@ int main() {
     ofstream energyFile("energy_vs_temperature2D.txt");
     ofstream magFile("magnetisation_vs_temperature2D.txt");
     
-    energyFile << "Temperature " << "Average Energy" << endl;
-    magFile << "Temperature " << "Average Magnetisation" << endl;
+    energyFile << "Temperature " << "AverageEnergy" << endl;
+    magFile << "Temperature " << "AverageMagnetisation" << endl;
     
     for (double T = T_min; T <= T_max; T += T_step) {
         double total_energy = 0.0;
