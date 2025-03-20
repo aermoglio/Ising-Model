@@ -9,10 +9,10 @@ data=pd.read_csv(filename, skiprows=4, delimiter=" ")
 energy=data["TotalEnergy"]
 magnetisation = data["Magnetisation"]
 
-bins= 4
+bins= 10
 
 fig,ax1 = plt.subplots()
-ax1.hist(energy, bins=3, color ="mediumpurple", edgecolor="black", alpha=0.7)
+ax1.hist(energy, bins=bins, color ="mediumpurple", edgecolor="black", alpha=0.7)
 ax1.set_xlabel("Energy")
 ax1.set_ylabel("Frequency")
 
