@@ -13,25 +13,38 @@ int main() {
     srand(time(0));  
 
     int n_configurations = 10000;  
-    int N= 100;
+    int N= 3;
     int iterations=10000;
-    double T=3.5;
+    double T_min = 0.1, T_max = 5;
+    double T_step = 0.1;
 
-    ofstream outfile("output2D.txt");
-    outfile<<"Number of Configurations: "<<n_configurations<<endl; 
-    outfile<<"Number of Atoms: "<<N<<endl; 
-    outfile<<"Monte Carlo Iterations: "<<iterations<<endl; 
-    outfile<<"Temperature: "<<T<<endl; 
+    ofstream energyFile("energy_vs_temperature2D.txt");
+    ofstream magFile("magnetisation_vs_temperature2D.txt");
     
-    outfile<<"Configuration "<<"TotalEnergy "<<"Magnetisation "<<endl; 
+    energyFile << "Temperature " << "Average Energy" << endl;
+    magFile << "Temperature " << "Average Magnetisation" << endl;
     
-    for (int n=0;n<n_configurations;n++){
-        AtomGrid grid(N);
-        
-        MonteCarlo (grid,N,T,iterations);  
-        outfile<<n<<" "<< grid.totalEnergy() <<" "<<grid.totalMagnetisation()<<endl;  
+    for (double T = T_min; T <= T_max; T += T_step) {
+        double total_energy = 0.0;
+        double total_magnetisation = 0.0;
+
+        for (int n = 0; n < n_configurations; n++) {
+            AtomGrid grid(N); 
+            
+            MonteCarlo(grid, N, T, iterations); 
+
+            total_energy += grid.totalEnergy();
+            total_magnetisation += fabs(grid.totalMagnetisation());
+        }
+
+        double avg_energy = total_energy / n_configurations;
+        double avg_magnetisation = total_magnetisation / n_configurations;
+
+        energyFile << T << " " << avg_energy << endl;
+        magFile << T << " " << avg_magnetisation << endl;
     }
 
-    outfile.close();
+    energyFile.close();
+    magFile.close();
     return 0;
 }
