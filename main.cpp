@@ -13,8 +13,8 @@ int main() {
     srand(time(0));  
 
     int n_configurations = 10000;  
-    int N= 10;
-    int iterations=50000;
+    int N= 100;
+    int iterations=10000;
     double T=0.9;
 
     ofstream outfile("output2D.txt");
