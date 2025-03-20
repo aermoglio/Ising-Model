@@ -38,7 +38,7 @@ int main() {
             MonteCarlo (chain,N,T,iterations); 
 
             total_energy += chain.totalEnergy();
-            total_magnetisation += chain.totalMagnetisation();
+            total_magnetisation += fabs(chain.totalMagnetisation());
 
         }
         double avg_energy = total_energy / n_configurations;
