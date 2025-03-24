@@ -18,12 +18,14 @@ int main() {
     double T_min=0.01, T_max=5;
     double T_step=0.1;        //
 
+    //output now into two files, one for magnetisation and one for energy
     ofstream energyFile("energy_vs_temperature1D.txt");
     ofstream magFile("magnetisation_vs_temperature1D.txt");
    
     srand(time(0));      // uses current time as the seed so all values produced for the states are different.
     
-    // Headers for file
+    // headers
+    // in this case, the process is similar as in the main branch, except that the avg energy and avg magnetisation are saved in a file for a range of temperatures
     energyFile<<"Temperature "<<"AverageEnergy"<<endl; 
     magFile<<"Temperature "<<"AverageMagnetisation"<<endl;
 
