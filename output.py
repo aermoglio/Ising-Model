@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+# python code to plot histograms
 filename ="output2D.txt"
 
 data=pd.read_csv(filename, skiprows=4, delimiter=" ")
@@ -13,12 +14,12 @@ bins= 10
 
 fig,ax1 = plt.subplots()
 ax1.hist(energy, bins=bins, color ="palevioletred", edgecolor="black", alpha=0.7)
-ax1.set_xlabel("Energy")  # Fixed this
+ax1.set_xlabel("Energy") 
 ax1.set_ylabel("Frequency") 
 
 fig,ax2 = plt.subplots()
 ax2.hist(magnetisation, bins=bins, color ="palegreen", edgecolor="black", alpha=0.7)
-ax2.set_xlabel("Magnetisation")  # Fixed this
+ax2.set_xlabel("Magnetisation")  
 ax2.set_ylabel("Frequency")
 
 plt.show()

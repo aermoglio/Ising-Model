@@ -5,11 +5,11 @@
 
 AtomGrid::AtomGrid(int N){
     this-> N = N;
-    this->atoms.resize(N, vector<Atom>(N)); 
+    this->atoms.resize(N, vector<Atom>(N));       // resizing the atoms vector to become an NxN grid
 
     for (int i = 0;i < N;i++) {
         for (int j = 0; j < N; j++) {
-            this->atoms[i][j] = Atom();
+            this->atoms[i][j] = Atom();      // populating the grid with atoms.
         }
 }
 }
@@ -28,7 +28,7 @@ Atom& AtomGrid::getAtom(int row,int col) {            // function to pick an ele
     return atoms[row][col];
 }
 
-double AtomGrid::totalEnergy(){
+double AtomGrid::totalEnergy(){                      // calculating total energy while considering boundary conditions
     int energy =0;
     for (int i =0; i<N; i++){
         for (int j=0;j<N;j++){
@@ -44,7 +44,7 @@ double AtomGrid::totalEnergy(){
     return energy;
 }
 
-double AtomGrid::totalMagnetisation(){
+double AtomGrid::totalMagnetisation(){           // summing the spins to obtain magnetisation
     int magnetisation =0;
     for (int i =0; i<N; i++){
         for (int j=0;j<N;j++){
