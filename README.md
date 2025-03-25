@@ -51,3 +51,6 @@ in the terminal.
 - To produce plots, write the following in the terminal:
 
         $ python plots.py 
+
+
+NOTE: Due to the nature of the clone feature, branches are stored in the origin remote by default. Use the branch checkout feature to make a copy locally.
