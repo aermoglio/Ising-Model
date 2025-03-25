@@ -18,6 +18,8 @@ $ ./program
 
 The outputs of all branches are in the form of txt files, which were then visualised using python. 
 
+NOTE: Due to the nature of the clone feature, branches are stored in the origin remote by default. Use the branch checkout feature to make a copy locally.
+
 The contents of each branch are the following:
 
 main:
@@ -53,4 +55,3 @@ in the terminal.
         $ python plots.py 
 
 
-NOTE: Due to the nature of the clone feature, branches are stored in the origin remote by default. Use the branch checkout feature to make a copy locally.
