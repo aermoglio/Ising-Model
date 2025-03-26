@@ -14,7 +14,7 @@ int main() {
 
     int n_configurations = 10000;  
     int N= 100;
-    int iterations=10000;
+    int iterations=100000;
     double T_min = 0.1, T_max = 5;
     double T_step = 0.1;
 
