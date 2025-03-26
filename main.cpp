@@ -13,9 +13,9 @@ int main() {
     srand(time(0));  
 
     // setting parameters
-    int n_configurations = 100000;  
+    int n_configurations = 10000;  
     int N= 100;
-    int iterations=10000;
+    int iterations=100000;
     double T=3.5;
 
     // creating headers for outfile
