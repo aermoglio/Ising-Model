@@ -52,6 +52,13 @@ in the terminal.
 - The outputs are visualised in the form of scatter plots, either as a plot of average energy against temperature, or absolute average magnetisation against temperature
 - To produce plots, write the following in the terminal:
 
-        $ python plots.py 
+        $ python plots.py
+
+
+  ## Skills used
+  - Object Oriented Programming
+  - Numerical Methods (Monte Carlo)
+  - Branching and merging
+  - Matplotlib
 
 
